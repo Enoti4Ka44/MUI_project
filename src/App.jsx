@@ -1,15 +1,27 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import Search from "./components/Search";
 import Header from "./components/Header";
+import { createTheme, ThemeProvider } from "@mui/material";
+import SignIn from "./pages/SignIn";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#7e57c2",
+    },
+    secondary: {
+      main: "#f06292",
+    },
+  },
+  typography: {
+    fontFamily: "Montserrat, sans-serif;",
+  },
+});
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Header />
-    </>
+    <ThemeProvider theme={theme}>
+      <SignIn />
+    </ThemeProvider>
   );
 }
 
