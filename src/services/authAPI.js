@@ -29,5 +29,7 @@ export async function userRegistration({username, email, password}) {
         throw new Error(data.message)
     }
 
+    localStorage.setItem("token", data.token); 
+
     return data
 }
