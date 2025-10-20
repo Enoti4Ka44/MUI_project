@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
-import { publicRoutes } from "../utils/routes";
-import Auth from "../pages/Auth";
+import { publicRoutes } from "../../utils/routes";
+import Auth from "../../pages/auth/Auth";
 
 function AppRouter() {
   const user = useAuth();

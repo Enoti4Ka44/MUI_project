@@ -8,10 +8,16 @@ import {
   Link,
 } from "@mui/material";
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { LOGIN_ROUTE } from "../../utils/consts";
 
 function Auth() {
+  const location = useLocation();
+  const isLogin = location.pathname === LOGIN_ROUTE;
+
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [usernameError, setUsernameError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const valid = (email) => {
@@ -105,17 +111,32 @@ function Auth() {
         <Box component="form" onSubmit={handleSubmit}>
           <TextField
             required
-            id="email"
-            label="Email"
+            id="username"
+            label="Username"
             variant="outlined"
-            type="email"
-            name="email"
+            type="text"
+            name="username"
             fullWidth
             margin="normal"
             size="small"
-            error={Boolean(emailError)}
-            helperText={emailError}
+            error={Boolean(usernameError)}
+            helperText={usernameError}
           />
+          {!isLogin && (
+            <TextField
+              required
+              id="email"
+              label="Email"
+              variant="outlined"
+              type="email"
+              name="email"
+              fullWidth
+              margin="normal"
+              size="small"
+              error={Boolean(emailError)}
+              helperText={emailError}
+            />
+          )}
           <TextField
             required
             id="password"
@@ -129,25 +150,29 @@ function Auth() {
             error={Boolean(passwordError)}
             helperText={passwordError}
           />
-          <TextField
-            required
-            id="confirmPassword"
-            label="Confirm password"
-            variant="outlined"
-            type="password"
-            name="confirmPassword"
-            fullWidth
-            margin="normal"
-            size="small"
-          />
-          <Link
-            href="#"
-            variant="subtitle2"
-            sx={{ fontWeight: "700", pl: 1 }}
-            underline="hover"
-          >
-            Forgot password ?
-          </Link>
+          {!isLogin && (
+            <>
+              <TextField
+                required
+                id="confirmPassword"
+                label="Confirm password"
+                variant="outlined"
+                type="password"
+                name="confirmPassword"
+                fullWidth
+                margin="normal"
+                size="small"
+              />
+              <Link
+                href="#"
+                variant="subtitle2"
+                sx={{ fontWeight: "700", pl: 1 }}
+                underline="hover"
+              >
+                Forgot password ?
+              </Link>
+            </>
+          )}
           <Button
             type="submit"
             color="primary"
@@ -160,16 +185,25 @@ function Auth() {
             Sign In
           </Button>
         </Box>
-        <Typography sx={{ mt: 1 }} variant="subtitle1">
-          Don't have an account ?{" "}
-          <Link
-            href="/registration"
-            sx={{ fontWeight: "500" }}
-            underline="hover"
-          >
-            Create one
-          </Link>
-        </Typography>
+        {isLogin ? (
+          <Typography sx={{ mt: 1 }} variant="subtitle1">
+            Don't have an account ?{" "}
+            <Link
+              href="/registration"
+              sx={{ fontWeight: "500" }}
+              underline="hover"
+            >
+              Create one
+            </Link>
+          </Typography>
+        ) : (
+          <Typography sx={{ mt: 1 }} variant="subtitle1">
+            Already have an account ?{" "}
+            <Link href="/login" sx={{ fontWeight: "500" }} underline="hover">
+              Sign In
+            </Link>
+          </Typography>
+        )}
       </Paper>
     </Container>
   );

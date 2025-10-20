@@ -1,4 +1,4 @@
-import Auth from "../pages/Auth"
+import Auth from "../pages/auth/Auth"
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "./consts"
 
 export const privateRoutes = []
