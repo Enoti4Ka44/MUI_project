@@ -1,7 +1,5 @@
-import Search from "./components/Search";
-import Header from "./components/Header";
 import { createTheme, ThemeProvider } from "@mui/material";
-import SignIn from "./pages/SignIn";
+import Auth from "./pages/Auth";
 
 const theme = createTheme({
   palette: {
@@ -20,7 +18,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SignIn />
+      <Auth />
     </ThemeProvider>
   );
 }

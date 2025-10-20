@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 
-function SignIn() {
+function Auth() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -171,4 +171,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Auth;
