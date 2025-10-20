@@ -162,7 +162,11 @@ function Auth() {
         </Box>
         <Typography sx={{ mt: 1 }} variant="subtitle1">
           Don't have an account ?{" "}
-          <Link href="/signup" sx={{ fontWeight: "500" }} underline="hover">
+          <Link
+            href="/registration"
+            sx={{ fontWeight: "500" }}
+            underline="hover"
+          >
             Create one
           </Link>
         </Typography>

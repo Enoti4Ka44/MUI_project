@@ -1,5 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import Auth from "./pages/Auth";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./components/AppRouter";
+import AuthPovider from "./components/AuthProvider";
 
 const theme = createTheme({
   palette: {
@@ -18,7 +20,11 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Auth />
+      <BrowserRouter>
+        <AuthPovider>
+          <AppRouter />
+        </AuthPovider>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
