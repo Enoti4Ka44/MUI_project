@@ -1,10 +1,15 @@
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import {
+  createTheme,
+  CssBaseline,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./shared/components/AppRouter";
 import AuthPovider from "./shared/components/AuthProvider";
 import { useState } from "react";
 
-const lightTheme = createTheme({
+let lightTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
@@ -19,7 +24,7 @@ const lightTheme = createTheme({
   },
 });
 
-const darkTheme = createTheme({
+let darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
@@ -34,10 +39,12 @@ const darkTheme = createTheme({
   },
 });
 
+const responsiveDarkTheme = responsiveFontSizes(darkTheme);
+
 function App() {
   const [theme, setTheme] = useState(true);
   return (
-    <ThemeProvider theme={theme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={theme ? responsiveDarkTheme : lightTheme}>
       <CssBaseline />
       <BrowserRouter>
         <AuthPovider>
