@@ -7,7 +7,17 @@ function NotFound(props) {
   const navigate = useNavigate();
   return (
     <Container sx={{ textAlign: "center", margin: "200px auto" }}>
-      <Typography variant="h1" component="h1" fontWeight={700}>
+      <Typography
+        variant="h1"
+        component="h1"
+        fontWeight={700}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 2,
+        }}
+      >
         4 <TravelExploreIcon fontSize="inherit" /> 4
       </Typography>
       <Typography variant="h3" component="h3" fontWeight={500} mb={4}>
