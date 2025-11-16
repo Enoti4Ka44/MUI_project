@@ -72,15 +72,13 @@ function Auth() {
   };
 
   return (
-    <Container
-      maxWidth="xs"
-      component="main"
+    <Box
       sx={{
-        height: window.innerHeight,
+        minHeight: window.innerHeight,
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
         justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
       }}
     >
       <Paper
@@ -205,7 +203,7 @@ function Auth() {
           </Typography>
         )}
       </Paper>
-    </Container>
+    </Box>
   );
 }
 
